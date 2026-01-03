@@ -1,284 +1,91 @@
-/* =====================================================
-   RESET & VARIABLES
-===================================================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gradient:linear-gradient(135deg,#ff6a00,#ee0979);
+  --dark:#111;
+  --gray:#666;
+  --light:#fff;
+  --soft:#f7f7f7;
+}
+body{font-family:"Segoe UI",system-ui,sans-serif;background:#fff;color:#111}
+img{width:100%;display:block}
+
+/* HERO */
+.hero{min-height:90vh;background:#0f0f0f;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1rem;padding:3rem 1.5rem}
+.hero-logo{width:140px}
+
+/* NAV */
+nav{position:sticky;top:0;background:#fff;display:flex;gap:1rem;overflow-x:auto;padding:.8rem}
+nav a{text-decoration:none;color:#111;white-space:nowrap}
+
+/* MOBILE NAV FIX */
+@media(max-width:480px){
+  nav{justify-content:flex-start}
 }
 
-:root {
-  --gradient: linear-gradient(135deg, #000);
-  --dark: #111111;
-  --gray: #666666;
-  --light: #ffffff;
-  --soft: #f7f7f7;
+/* PAGE HERO */
+.page-hero{height:45vh;background:#0f0f0f;color:#fff;display:flex;align-items:center;justify-content:center}
+
+/* INTRO */
+section{padding:4rem 1.5rem}
+.intro p{text-align:center;color:#666}
+
+/* BENTO (BOUTONS GRADIENT) */
+.bento{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:800px;margin:auto}
+.bento-card{
+  background:var(--gradient);
+  color:#fff;
+  padding:3rem 1.5rem;
+  border-radius:25px;
+  text-align:center;
+  text-decoration:none;
+  font-weight:600;
+}
+.bento-card.wide{grid-column:span 2}
+
+/* MENU */
+.menu-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1.5rem}
+.menu-card{grid-column:span 4;background:#fff;border-radius:20px;overflow:hidden}
+.menu-card img{height:180px;object-fit:cover}
+.menu-card h3{padding:1rem}
+.menu-card p{padding:0 1rem;color:#666}
+.menu-card span{
+  display:inline-block;
+  margin:1rem;
+  background:var(--gradient);
+  color:#fff;
+  padding:.4rem 1rem;
+  border-radius:30px;
+  font-weight:600;
 }
 
-/* =====================================================
-   BASE
-===================================================== */
-body {
-  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-  background: var(--light);
-  color: var(--dark);
-  line-height: 1.7;
+/* BACK BUTTON */
+.back-button{
+  position:fixed;
+  bottom:1rem;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--gradient);
+  color:#fff;
+  padding:.6rem 1.6rem;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
 }
 
-img {
-  width: 100%;
-  display: block;
+/* SCROLL (ACCUEIL SEULEMENT) */
+.home .scroll{
+  opacity:0;
+  transform:translateY(30px);
+  animation:reveal 1s ease forwards;
+  animation-timeline:view();
 }
+@keyframes reveal{to{opacity:1;transform:none}}
 
-/* =====================================================
-   HERO ACCUEIL
-===================================================== */
-.hero {
-  min-height: 90vh;
-  background: var(--gradient);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 1.2rem;
-  padding: 3rem 1.5rem;
+/* RESPONSIVE */
+@media(max-width:768px){
+  .menu-card{grid-column:span 6}
 }
-
-.hero-logo {
-  width: 140px;
-  filter: drop-shadow(0 12px 30px rgba(0,0,0,.35));
+@media(max-width:480px){
+  .menu-grid,.bento{grid-template-columns:1fr}
+  .menu-card,.bento-card{grid-column:span 1}
 }
-
-.hero h1 {
-  font-size: 2.8rem;
-}
-
-.hero p {
-  font-size: 1rem;
-  opacity: 0.9;
-}
-
-.hours {
-  font-size: 0.9rem;
-  opacity: 0.85;
-}
-
-/* =====================================================
-   NAVIGATION (DESKTOP)
-===================================================== */
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1rem 1.5rem;
-}
-
-nav a {
-  text-decoration: none;
-  color: var(--dark);
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-/* =====================================================
-   NAVIGATION MOBILE FIX (IMPORTANT)
-===================================================== */
-@media (max-width: 480px) {
-  nav {
-    justify-content: flex-start;
-    overflow-x: auto;
-    white-space: nowrap;
-    gap: 0;
-    padding: 0.8rem 0.5rem;
-  }
-
-  nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  nav a {
-    flex: 0 0 auto;
-    padding: 0.6rem 1rem;
-    font-size: 0.95rem;
-  }
-}
-
-/* =====================================================
-   PAGE HERO (AUTRES PAGES)
-===================================================== */
-.page-hero {
-  height: 20vh;
-  background: var(--gradient);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.page-hero h1 {
-  font-size: 2.5rem;
-}
-
-/* =====================================================
-   SECTIONS
-===================================================== */
-section {
-  padding: 5rem 1.5rem;
-}
-
-.intro p {
-  max-width: 700px;
-  margin: auto;
-  text-align: center;
-  color: var(--gray);
-}
-
-/* =====================================================
-   BENTO (ACCUEIL)
-===================================================== */
-.bento {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.8rem;
-  max-width: 900px;
-  margin: auto;
-}
-
-.bento-card {
-  background: var(--soft);
-  border-radius: 28px;
-  padding: 3rem 1.5rem;
-  text-align: center;
-  font-size: 1.3rem;
-  text-decoration: none;
-  color: var(--dark);
-}
-
-.bento-card.wide {
-  grid-column: span 2;
-}
-
-/* =====================================================
-   MENU (PLATS)
-===================================================== */
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1.8rem;
-}
-
-.menu-card {
-  grid-column: span 4;
-  background: white;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 18px 35px rgba(0,0,0,0.07);
-}
-
-.menu-card img {
-  height: 200px;
-  object-fit: cover;
-}
-
-.menu-card h3 {
-  padding: 1.3rem 1.3rem 0.3rem;
-  font-size: 1.15rem;
-}
-
-.menu-card p {
-  padding: 0 1.3rem;
-  font-size: 0.95rem;
-  color: var(--gray);
-}
-
-.menu-card span {
-  display: inline-block;
-  margin: 1.2rem;
-  background: var(--gradient);
-  color: white;
-  padding: 0.4rem 1.2rem;
-  border-radius: 30px;
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-/* =====================================================
-   BOUTON RETOUR
-===================================================== */
-.back-button {
-  position: fixed;
-  bottom: 1.2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--gradient);
-  color: white;
-  padding: 0.6rem 1.6rem;
-  border-radius: 30px;
-  text-decoration: none;
-  font-size: 0.95rem;
-  z-index: 300;
-}
-
-/* =====================================================
-   FOOTER
-===================================================== */
-footer {
-  background: #0f0f0f;
-  color: #aaaaaa;
-  text-align: center;
-  padding: 3rem 1.5rem;
-  font-size: 0.9rem;
-}
-
-/* =====================================================
-   SCROLL ANIMATION
-===================================================== */
-.scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: reveal 1s ease forwards;
-  animation-timeline: view();
-}
-
-@keyframes reveal {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =====================================================
-   RESPONSIVE GLOBAL
-===================================================== */
-@media (max-width: 768px) {
-  .menu-card {
-    grid-column: span 6;
-  }
-}
-
-@media (max-width: 480px) {
-  .menu-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .menu-card {
-    grid-column: span 1;
-  }
-
-  .bento {
-    grid-template-columns: 1fr;
-  }
-
-  .bento-card.wide {
-    grid-column: span 1;
-  }
-}
-
