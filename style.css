@@ -133,3 +133,116 @@ footer{
   .menu-grid,.bento{grid-template-columns:1fr}
   .menu-card,.bento-card{grid-column:span 1}
 }
+
+
+
+/* =====================================================
+   OPTIMISATION MOBILE (TÉLÉPHONE)
+===================================================== */
+@media (max-width: 480px) {
+
+  /* HERO */
+  .hero {
+    padding: 3rem 1.5rem;
+    min-height: 85vh;
+  }
+
+  .hero-logo {
+    width: 120px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  /* NAVIGATION */
+  nav {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  nav a {
+    font-size: 0.95rem;
+  }
+
+  /* BENTO */
+  .bento {
+    gap: 1.5rem;
+  }
+
+  .bento-card {
+    padding: 2.5rem 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  /* MENU */
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-card {
+    grid-column: span 1;
+  }
+
+  .menu-card img {
+    height: 180px;
+  }
+
+  .menu-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .menu-card p {
+    font-size: 0.9rem;
+  }
+
+  /* BOUTON RETOUR */
+  .back-button {
+    top: auto;
+    bottom: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.6rem 1.6rem;
+    font-size: 0.95rem;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 3rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
