@@ -8,7 +8,7 @@
 }
 
 :root {
-  --gradient: linear-gradient(135deg, #ff6a00, #ee0979);
+  --gradient: linear-gradient(135deg, #000);
   --dark: #111111;
   --gray: #666666;
   --light: #ffffff;
@@ -114,7 +114,7 @@ nav a {
    PAGE HERO (AUTRES PAGES)
 ===================================================== */
 .page-hero {
-  height: 45vh;
+  height: 20vh;
   background: var(--gradient);
   color: white;
   display: flex;
@@ -281,3 +281,4 @@ footer {
     grid-column: span 1;
   }
 }
+
